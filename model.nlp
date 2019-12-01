@@ -1,0 +1,500 @@
+{
+  "settings": {
+    "languages": [
+      "en",
+      "hi"
+    ],
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp"
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en",
+      "hi"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "trainByDomain": false,
+          "useStemDict": true
+        },
+        "stemDict": {
+          "can,get,help,how,i,technic": {
+            "intent": "ask.question",
+            "domain": "default"
+          },
+          "help,i,need,technic": {
+            "intent": "ask.question",
+            "domain": "default"
+          },
+          "anyon,can,help,me": {
+            "intent": "ask.question",
+            "domain": "default"
+          },
+          "can,get,help,i,where": {
+            "intent": "ask.doc",
+            "domain": "default"
+          },
+          "doe,next,start,the,voyag,when": {
+            "intent": "schedule.voyage",
+            "domain": "default"
+          },
+          "display,schedul,the,voyag": {
+            "intent": "schedule.voyage",
+            "domain": "default"
+          },
+          "list,schedul,the,voyag": {
+            "intent": "schedule.voyage",
+            "domain": "default"
+          },
+          "schedul,show,the,voyag": {
+            "intent": "schedule.voyage",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "ask.question": "default",
+          "ask.doc": "default",
+          "schedule.voyage": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "how can I get technical help",
+            "intent": "ask.question"
+          },
+          {
+            "domain": "default",
+            "utterance": "I need technical help",
+            "intent": "ask.question"
+          },
+          {
+            "domain": "default",
+            "utterance": "can anyone help me",
+            "intent": "ask.question"
+          },
+          {
+            "domain": "default",
+            "utterance": "where can I get help",
+            "intent": "ask.doc"
+          },
+          {
+            "domain": "default",
+            "utterance": "when does the next voyage start",
+            "intent": "schedule.voyage"
+          },
+          {
+            "domain": "default",
+            "utterance": "display the voyage schedule",
+            "intent": "schedule.voyage"
+          },
+          {
+            "domain": "default",
+            "utterance": "list the voyage schedule",
+            "intent": "schedule.voyage"
+          },
+          {
+            "domain": "default",
+            "utterance": "show the voyage schedule",
+            "intent": "schedule.voyage"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "how": 1,
+              "can": 1,
+              "i": 1,
+              "get": 1,
+              "technic": 1,
+              "help": 1,
+              "need": 1,
+              "anyon": 1,
+              "me": 1,
+              "where": 1,
+              "when": 1,
+              "doe": 1,
+              "the": 1,
+              "next": 1,
+              "voyag": 1,
+              "start": 1,
+              "display": 1,
+              "schedul": 1,
+              "list": 1,
+              "show": 1
+            },
+            "intents": {
+              "ask.question": 1,
+              "ask.doc": 1,
+              "schedule.voyage": 1
+            },
+            "intentFeatures": {
+              "ask.question": [
+                "how",
+                "can",
+                "i",
+                "get",
+                "technic",
+                "help",
+                "need",
+                "anyon",
+                "me"
+              ],
+              "ask.doc": [
+                "where",
+                "can",
+                "i",
+                "get",
+                "help"
+              ],
+              "schedule.voyage": [
+                "when",
+                "doe",
+                "the",
+                "next",
+                "voyag",
+                "start",
+                "display",
+                "schedul",
+                "list",
+                "show"
+              ]
+            },
+            "neuralNetwork": {
+              "features": [
+                "how",
+                "can",
+                "i",
+                "get",
+                "technic",
+                "help",
+                "need",
+                "anyon",
+                "me",
+                "where",
+                "when",
+                "doe",
+                "the",
+                "next",
+                "voyag",
+                "start",
+                "display",
+                "schedul",
+                "list",
+                "show",
+                "nonefeature"
+              ],
+              "intents": [
+                "ask.question",
+                "ask.doc",
+                "schedule.voyage",
+                "None"
+              ],
+              "perceptrons": [
+                [
+                  2.7449119091033936,
+                  1.3406277894973755,
+                  0.4392937421798706,
+                  -1.8606455326080322,
+                  5.044852256774902,
+                  3.640566349029541,
+                  2.299940347671509,
+                  3.2012722492218018,
+                  3.2012722492218018,
+                  -4.605557918548584,
+                  -0.13084301352500916,
+                  -0.13084301352500916,
+                  -0.4292023777961731,
+                  -0.13084301352500916,
+                  -0.4292023777961731,
+                  -0.13084301352500916,
+                  -0.127253457903862,
+                  -0.29835936427116394,
+                  -0.09751015156507492,
+                  -0.07359569519758224,
+                  -1.037331223487854,
+                  1.0847075296245354
+                ],
+                [
+                  -3.1738526821136475,
+                  1.2712440490722656,
+                  2.0335659980773926,
+                  2.4341893196105957,
+                  -3.5744762420654297,
+                  0.8706210851669312,
+                  -0.4006233811378479,
+                  -1.16294527053833,
+                  -1.16294527053833,
+                  5.608043193817139,
+                  -0.07572191953659058,
+                  -0.07572191953659058,
+                  -0.21340134739875793,
+                  -0.07572191953659058,
+                  -0.21340134739875793,
+                  -0.07572191953659058,
+                  -0.06398393958806992,
+                  -0.13767942786216736,
+                  -0.04560800641775131,
+                  -0.028087478131055832,
+                  -0.2276441752910614,
+                  0.21589117422721107
+                ],
+                [
+                  -0.1722192019224167,
+                  -0.39408305287361145,
+                  -0.3696916401386261,
+                  -0.21763096749782562,
+                  -0.3242798447608948,
+                  -0.5461437702178955,
+                  -0.15206067264080048,
+                  -0.17645207047462463,
+                  -0.17645207047462463,
+                  -0.045411769300699234,
+                  0.9498143792152405,
+                  0.9498143792152405,
+                  3.8013229370117188,
+                  0.9498143792152405,
+                  3.8013229370117188,
+                  0.9498143792152405,
+                  0.969140887260437,
+                  2.851508378982544,
+                  0.9536501169204712,
+                  0.9287168383598328,
+                  -1.0608482360839844,
+                  1.0963374970667084
+                ],
+                [
+                  -0.11755214631557465,
+                  -0.7936296463012695,
+                  -0.756757915019989,
+                  -0.2432641237974167,
+                  -0.6310459971427917,
+                  -1.307123064994812,
+                  -0.5134937763214111,
+                  -0.5503653287887573,
+                  -0.5503653287887573,
+                  -0.12571203708648682,
+                  -0.2696957588195801,
+                  -0.2696957588195801,
+                  -1.073112964630127,
+                  -0.2696957588195801,
+                  -1.073112964630127,
+                  -0.2696957588195801,
+                  -0.28448745608329773,
+                  -0.8034171462059021,
+                  -0.26952803134918213,
+                  -0.2494017481803894,
+                  8.841538429260254,
+                  3.2428742071017473
+                ]
+              ],
+              "perceptronSettings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              }
+            }
+          }
+        }
+      },
+      "hi": {
+        "settings": {
+          "locale": "hi",
+          "tag": "domain-manager-hi",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "trainByDomain": false,
+          "useStemDict": true
+        },
+        "stemDict": {
+          "default": {
+            "intent": "mujhe takaneekee madad kaise mil sakatee hai",
+            "domain": "master_domain"
+          }
+        },
+        "intentDict": {
+          "mujhe takaneekee madad kaise mil sakatee hai": "master_domain"
+        },
+        "sentences": [
+          {
+            "domain": "master_domain",
+            "utterance": "default",
+            "intent": "mujhe takaneekee madad kaise mil sakatee hai"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "hi",
+              "tag": "nlu-hi",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "default": 1
+            },
+            "intents": {
+              "mujhe takaneekee madad kaise mil sakatee hai": 1
+            },
+            "intentFeatures": {
+              "mujhe takaneekee madad kaise mil sakatee hai": [
+                "default"
+              ]
+            },
+            "neuralNetwork": {
+              "features": [
+                "default"
+              ],
+              "intents": [
+                "mujhe takaneekee madad kaise mil sakatee hai"
+              ],
+              "perceptrons": [
+                [
+                  8.289545059204102,
+                  4.150278708563915
+                ]
+              ],
+              "perceptronSettings": {
+                "locale": "hi",
+                "tag": "nlu-hi",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "how can I get technical help"
+      ],
+      [
+        "hi",
+        "mujhe takaneekee madad kaise mil sakatee hai"
+      ],
+      [
+        "en",
+        "I need technical help"
+      ],
+      [
+        "en",
+        "can anyone help me"
+      ],
+      [
+        "en",
+        "where can I get help"
+      ],
+      [
+        "en",
+        "when does the next voyage start"
+      ],
+      [
+        "en",
+        "display the voyage schedule"
+      ],
+      [
+        "en",
+        "list the voyage schedule"
+      ],
+      [
+        "en",
+        "show the voyage schedule"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "ask.doc": [
+          {
+            "answer": "https://docs.chingu.io"
+          }
+        ],
+        "ask.question": [
+          {
+            "answer": "https://chingu.docs.chingu.io/about/askhelp"
+          }
+        ],
+        "schedule.voyage": [
+          {
+            "answer": "https://chingu.docs.chingu.io/intro/schedule"
+          }
+        ]
+      },
+      "hi": {
+        "ask.question": [
+          {
+            "answer": "https://chingu.docs.chingu.io/about/askhelp"
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

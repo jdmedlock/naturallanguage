@@ -1,0 +1,29 @@
+{
+  "name": "naturallanguage",
+  "version": "1.0.0",
+  "description": "Test of NLP Package",
+  "main": "index.js",
+  "author": "Jim D. Medlock",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/jdmedlock/naturallanguage/issues"
+  },
+  "homepage": "https://github.com/jdmedlock/naturallanguage#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdmedlock/naturallanguage.git"
+  },
+  "keywords": [
+    "javascript",
+    "nlp",
+    "natural",
+    "language"
+  ],
+  "dependencies": {
+    "node-nlp": "^4.0.0-rc.4"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
