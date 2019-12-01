@@ -4,6 +4,9 @@
       "en",
       "hi"
     ],
+    "nlu": {
+      "log": false
+    },
     "tag": "nlp",
     "threshold": 0.5,
     "autoLoad": true,
@@ -12,7 +15,8 @@
   },
   "nluManager": {
     "settings": {
-      "tag": "nlu-manager"
+      "tag": "nlu-manager",
+      "log": false
     },
     "locales": [
       "en",
@@ -34,92 +38,159 @@
           "useStemDict": true
         },
         "stemDict": {
-          "ask,question": {
-            "intent": "ask.question",
+          "%action%,help": {
+            "intent": "ask.all",
             "domain": "default"
           },
-          "can,get,help,how,i,technic": {
-            "intent": "ask.question",
+          "help,i,need": {
+            "intent": "ask.all",
             "domain": "default"
           },
-          "help,i,need,technic": {
-            "intent": "ask.question",
+          "%action%,question": {
+            "intent": "ask.all",
             "domain": "default"
           },
-          "anyon,can,help,me": {
-            "intent": "ask.question",
+          "%action%,chingu": {
+            "intent": "doc.chingu",
             "domain": "default"
           },
-          "can,get,help,i,where": {
-            "intent": "ask.doc",
+          "%action%,%pp%": {
+            "intent": "doc.pair",
             "domain": "default"
           },
-          "doe,next,start,the,voyag,when": {
+          "%action%,%proj%": {
+            "intent": "doc.proj",
+            "domain": "default"
+          },
+          "%action%,%mgr%,%proj%": {
+            "intent": "doc.proj",
+            "domain": "default"
+          },
+          "%action%,%mgt%,%proj%": {
+            "intent": "doc.proj",
+            "domain": "default"
+          },
+          "%action%,%proj%,%res%": {
+            "intent": "doc.proj",
+            "domain": "default"
+          },
+          "%action%,%tech%": {
+            "intent": "doc.tech",
+            "domain": "default"
+          },
+          "%action%,%mgt%,%tech%": {
+            "intent": "doc.tech",
+            "domain": "default"
+          },
+          "%action%,%res%,%tech%": {
+            "intent": "doc.tech",
+            "domain": "default"
+          },
+          "%action%,voyag": {
+            "intent": "doc.voyage",
+            "domain": "default"
+          },
+          "%sched%,voyag": {
             "intent": "schedule.voyage",
             "domain": "default"
           },
-          "display,schedul,the,voyag": {
+          "%begin%,doe,next,the,voyag,when": {
             "intent": "schedule.voyage",
             "domain": "default"
           },
-          "list,schedul,the,voyag": {
-            "intent": "schedule.voyage",
-            "domain": "default"
-          },
-          "schedul,show,the,voyag": {
+          "%display%,%sched%,voyag": {
             "intent": "schedule.voyage",
             "domain": "default"
           }
         },
         "intentDict": {
-          "ask.question": "default",
-          "ask.doc": "default",
+          "ask.all": "default",
+          "doc.chingu": "default",
+          "doc.pair": "default",
+          "doc.proj": "default",
+          "doc.tech": "default",
+          "doc.voyage": "default",
           "schedule.voyage": "default"
         },
         "sentences": [
           {
             "domain": "default",
-            "utterance": "ask question",
-            "intent": "ask.question"
+            "utterance": "%action% help",
+            "intent": "ask.all"
           },
           {
             "domain": "default",
-            "utterance": "how can I get technical help",
-            "intent": "ask.question"
+            "utterance": "I need help",
+            "intent": "ask.all"
           },
           {
             "domain": "default",
-            "utterance": "I need technical help",
-            "intent": "ask.question"
+            "utterance": "%action% question",
+            "intent": "ask.all"
           },
           {
             "domain": "default",
-            "utterance": "can anyone help me",
-            "intent": "ask.question"
+            "utterance": "%action% chingu",
+            "intent": "doc.chingu"
           },
           {
             "domain": "default",
-            "utterance": "where can I get help",
-            "intent": "ask.doc"
+            "utterance": "%action% %pp%",
+            "intent": "doc.pair"
           },
           {
             "domain": "default",
-            "utterance": "when does the next voyage start",
+            "utterance": "%action% %proj%",
+            "intent": "doc.proj"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %proj% %mgr%",
+            "intent": "doc.proj"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %proj% %mgt%",
+            "intent": "doc.proj"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %proj% %res%",
+            "intent": "doc.proj"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %tech%",
+            "intent": "doc.tech"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %tech% %mgt%",
+            "intent": "doc.tech"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% %tech% %res%",
+            "intent": "doc.tech"
+          },
+          {
+            "domain": "default",
+            "utterance": "%action% voyage",
+            "intent": "doc.voyage"
+          },
+          {
+            "domain": "default",
+            "utterance": "voyage %sched%",
             "intent": "schedule.voyage"
           },
           {
             "domain": "default",
-            "utterance": "display the voyage schedule",
+            "utterance": "when does the next voyage %begin%",
             "intent": "schedule.voyage"
           },
           {
             "domain": "default",
-            "utterance": "list the voyage schedule",
-            "intent": "schedule.voyage"
-          },
-          {
-            "domain": "default",
-            "utterance": "show the voyage schedule",
+            "utterance": "%display% voyage %sched%",
             "intent": "schedule.voyage"
           }
         ],
@@ -137,204 +208,306 @@
               "log": true
             },
             "features": {
-              "ask": 1,
-              "question": 1,
-              "how": 1,
-              "can": 1,
-              "i": 1,
-              "get": 1,
-              "technic": 1,
+              "%action%": 1,
               "help": 1,
+              "i": 1,
               "need": 1,
-              "anyon": 1,
-              "me": 1,
-              "where": 1,
+              "question": 1,
+              "chingu": 1,
+              "%pp%": 1,
+              "%proj%": 1,
+              "%mgr%": 1,
+              "%mgt%": 1,
+              "%res%": 1,
+              "%tech%": 1,
+              "voyag": 1,
+              "%sched%": 1,
               "when": 1,
               "doe": 1,
               "the": 1,
               "next": 1,
-              "voyag": 1,
-              "start": 1,
-              "display": 1,
-              "schedul": 1,
-              "list": 1,
-              "show": 1
+              "%begin%": 1,
+              "%display%": 1
             },
             "intents": {
-              "ask.question": 1,
-              "ask.doc": 1,
+              "ask.all": 1,
+              "doc.chingu": 1,
+              "doc.pair": 1,
+              "doc.proj": 1,
+              "doc.tech": 1,
+              "doc.voyage": 1,
               "schedule.voyage": 1
             },
             "intentFeatures": {
-              "ask.question": [
-                "ask",
-                "question",
-                "how",
-                "can",
-                "i",
-                "get",
-                "technic",
+              "ask.all": [
+                "%action%",
                 "help",
-                "need",
-                "anyon",
-                "me"
-              ],
-              "ask.doc": [
-                "where",
-                "can",
                 "i",
-                "get",
-                "help"
+                "need",
+                "question"
+              ],
+              "doc.chingu": [
+                "%action%",
+                "chingu"
+              ],
+              "doc.pair": [
+                "%action%",
+                "%pp%"
+              ],
+              "doc.proj": [
+                "%action%",
+                "%proj%",
+                "%mgr%",
+                "%mgt%",
+                "%res%"
+              ],
+              "doc.tech": [
+                "%action%",
+                "%tech%",
+                "%mgt%",
+                "%res%"
+              ],
+              "doc.voyage": [
+                "%action%",
+                "voyag"
               ],
               "schedule.voyage": [
+                "voyag",
+                "%sched%",
                 "when",
                 "doe",
                 "the",
                 "next",
-                "voyag",
-                "start",
-                "display",
-                "schedul",
-                "list",
-                "show"
+                "%begin%",
+                "%display%"
               ]
             },
             "neuralNetwork": {
               "features": [
-                "ask",
-                "question",
-                "how",
-                "can",
-                "i",
-                "get",
-                "technic",
+                "%action%",
                 "help",
+                "i",
                 "need",
-                "anyon",
-                "me",
-                "where",
+                "question",
+                "chingu",
+                "%pp%",
+                "%proj%",
+                "%mgr%",
+                "%mgt%",
+                "%res%",
+                "%tech%",
+                "voyag",
+                "%sched%",
                 "when",
                 "doe",
                 "the",
                 "next",
-                "voyag",
-                "start",
-                "display",
-                "schedul",
-                "list",
-                "show",
+                "%begin%",
+                "%display%",
                 "nonefeature"
               ],
               "intents": [
-                "ask.question",
-                "ask.doc",
+                "ask.all",
+                "doc.chingu",
+                "doc.pair",
+                "doc.proj",
+                "doc.tech",
+                "doc.voyage",
                 "schedule.voyage",
                 "None"
               ],
               "perceptrons": [
                 [
-                  5.005061626434326,
-                  5.005061626434326,
-                  2.8458449840545654,
-                  1.0515717267990112,
-                  0.10997312515974045,
-                  -1.905904769897461,
-                  4.861723899841309,
-                  3.0674498081207275,
-                  2.0158777236938477,
-                  2.95747709274292,
-                  2.95747709274292,
-                  -4.751749515533447,
-                  -0.22073182463645935,
-                  -0.22073182463645935,
-                  -0.872717022895813,
-                  -0.22073182463645935,
-                  -0.872717022895813,
-                  -0.22073182463645935,
-                  -0.2525177299976349,
-                  -0.6519850492477417,
-                  -0.216158926486969,
-                  -0.1833084523677826,
-                  -2.3102023601531982,
-                  2.440511325728677
+                  2.184525728225708,
+                  9.282873153686523,
+                  1.138780951499939,
+                  1.138780951499939,
+                  9.33281421661377,
+                  -3.1438791751861572,
+                  -3.1428685188293457,
+                  -3.1428446769714355,
+                  -0.5979277491569519,
+                  -0.8247384428977966,
+                  -0.704539954662323,
+                  -3.1346027851104736,
+                  -3.1216747760772705,
+                  -0.29566097259521484,
+                  -0.0978216826915741,
+                  -0.0978216826915741,
+                  -0.0978216826915741,
+                  -0.0978216826915741,
+                  -0.0978216826915741,
+                  -0.09839217364788055,
+                  -1.0102558135986328,
+                  0.9592155410076098
                 ],
                 [
-                  -0.12991799414157867,
-                  -0.12991799414157867,
-                  -3.1970715522766113,
-                  1.273874282836914,
-                  2.05117130279541,
-                  2.43422794342041,
-                  -3.5801289081573486,
-                  0.8908164501190186,
-                  -0.38305753469467163,
-                  -1.1603546142578125,
-                  -1.1603546142578125,
-                  5.631300926208496,
-                  -0.07545821368694305,
-                  -0.07545821368694305,
-                  -0.2126885950565338,
-                  -0.07545821368694305,
-                  -0.2126885950565338,
-                  -0.07545821368694305,
-                  -0.06376965343952179,
-                  -0.13723036646842957,
-                  -0.04546041041612625,
-                  -0.028000304475426674,
-                  -0.19707827270030975,
-                  0.1762669790858309
+                  1.2278215885162354,
+                  -1.608610987663269,
+                  -0.018931396305561066,
+                  -0.018931396305561066,
+                  -1.6024906635284424,
+                  10.857711791992188,
+                  -1.6145715713500977,
+                  -1.6303157806396484,
+                  -0.3646159768104553,
+                  -0.5290449857711792,
+                  -0.4592247009277344,
+                  -1.619414210319519,
+                  -1.6142997741699219,
+                  -0.030098307877779007,
+                  -0.01078447699546814,
+                  -0.01078447699546814,
+                  -0.01078447699546814,
+                  -0.01078447699546814,
+                  -0.01078447699546814,
+                  -0.007296572905033827,
+                  -0.3891415297985077,
+                  0.38942982890862876
                 ],
                 [
-                  -0.5004103779792786,
-                  -0.5004103779792786,
-                  -0.16259416937828064,
-                  -0.360657662153244,
-                  -0.34456324577331543,
-                  -0.20546795427799225,
-                  -0.3016894459724426,
-                  -0.4997529983520508,
-                  -0.13909529149532318,
-                  -0.15518973767757416,
-                  -0.15518973767757416,
-                  -0.04287378117442131,
-                  0.961641788482666,
-                  0.961641788482666,
-                  3.848350763320923,
-                  0.961641788482666,
-                  3.848350763320923,
-                  0.961641788482666,
-                  0.9762853384017944,
-                  2.8867084980010986,
-                  0.9649388194084167,
-                  0.9454849362373352,
-                  -0.9361763596534729,
-                  0.9556119450386301
+                  1.2310993671417236,
+                  -1.6144731044769287,
+                  -0.020952856168150902,
+                  -0.020952856168150902,
+                  -1.6099170446395874,
+                  -1.6032668352127075,
+                  10.857128143310547,
+                  -1.6213810443878174,
+                  -0.3816543221473694,
+                  -0.589855968952179,
+                  -0.522984504699707,
+                  -1.6277438402175903,
+                  -1.6167654991149902,
+                  -0.03422556817531586,
+                  -0.01233708392828703,
+                  -0.01233708392828703,
+                  -0.01233708392828703,
+                  -0.01233708392828703,
+                  -0.01233708392828703,
+                  -0.008419964462518692,
+                  -0.3886643648147583,
+                  0.3875738078904847
                 ],
                 [
-                  -1.3866326808929443,
-                  -1.3866326808929443,
-                  -0.10683047026395798,
-                  -0.7061489820480347,
-                  -0.6720174551010132,
-                  -0.2157861888408661,
-                  -0.5630618333816528,
-                  -1.1623800992965698,
-                  -0.45623141527175903,
-                  -0.4903627336025238,
-                  -0.4903627336025238,
-                  -0.10895571857690811,
-                  -0.23922789096832275,
-                  -0.23922789096832275,
-                  -0.9536885023117065,
-                  -0.23922789096832275,
-                  -0.9536885023117065,
-                  -0.23922789096832275,
-                  -0.24978064000606537,
-                  -0.7144604921340942,
-                  -0.2395203411579132,
-                  -0.22515977919101715,
-                  9.245430946350098,
-                  2.8823588014177313
+                  1.0861297845840454,
+                  -1.3420501947402954,
+                  -0.0574156828224659,
+                  -0.0574156828224659,
+                  -1.335810899734497,
+                  -1.330154299736023,
+                  -1.3241539001464844,
+                  10.675191879272461,
+                  0.5407072901725769,
+                  0.5319846272468567,
+                  0.5513770580291748,
+                  -3.0382754802703857,
+                  -1.4327600002288818,
+                  -0.10440835356712341,
+                  -0.0523175410926342,
+                  -0.0523175410926342,
+                  -0.0523175410926342,
+                  -0.0523175410926342,
+                  -0.0523175410926342,
+                  -0.033368922770023346,
+                  -0.31825897097587585,
+                  0.2745703681063214
+                ],
+                [
+                  1.1711785793304443,
+                  -1.4104136228561401,
+                  -0.07356300950050354,
+                  -0.07356300950050354,
+                  -1.40581476688385,
+                  -1.4009867906570435,
+                  -1.3954007625579834,
+                  -2.8495283126831055,
+                  -0.22561605274677277,
+                  0.45369842648506165,
+                  0.45801034569740295,
+                  10.713048934936523,
+                  -1.4210307598114014,
+                  -0.17993158102035522,
+                  -0.08781653642654419,
+                  -0.08781653642654419,
+                  -0.08781653642654419,
+                  -0.08781653642654419,
+                  -0.08781653642654419,
+                  -0.06100953370332718,
+                  -0.3170489966869354,
+                  0.2554124327470515
+                ],
+                [
+                  4.554498672485352,
+                  -2.350321054458618,
+                  -0.02363390289247036,
+                  -0.02363390289247036,
+                  -2.341590166091919,
+                  -2.3274993896484375,
+                  -2.3094191551208496,
+                  -2.2920093536376953,
+                  -0.32363367080688477,
+                  -0.3893192410469055,
+                  -0.3519333600997925,
+                  -2.268263816833496,
+                  9.653063774108887,
+                  -7.27051305770874,
+                  -1.4963880777359009,
+                  -1.4963880777359009,
+                  -1.4963880777359009,
+                  -1.4963880777359009,
+                  -1.4963880777359009,
+                  -1.3462281227111816,
+                  -0.07749396562576294,
+                  -2.1574537574438812
+                ],
+                [
+                  -5.161897659301758,
+                  -0.5008038878440857,
+                  -0.3426011800765991,
+                  -0.3426011800765991,
+                  -0.1398019790649414,
+                  -0.12349044531583786,
+                  -0.10634033381938934,
+                  -0.19595785439014435,
+                  -0.054320063441991806,
+                  -0.06767824292182922,
+                  -0.049071911722421646,
+                  -0.10281651467084885,
+                  4.1987152099609375,
+                  7.078150749206543,
+                  1.4558523893356323,
+                  1.4558523893356323,
+                  1.4558523893356323,
+                  1.4558523893356323,
+                  1.4558523893356323,
+                  0.32789528369903564,
+                  -1.0032789707183838,
+                  1.011411679583192
+                ],
+                [
+                  -2.2495040893554688,
+                  -1.0135599374771118,
+                  -0.8218692541122437,
+                  -0.8218692541122437,
+                  -0.41248664259910583,
+                  -0.409633606672287,
+                  -0.40858492255210876,
+                  -0.4083936810493469,
+                  -0.0758410319685936,
+                  -0.09854765981435776,
+                  -0.08541864156723022,
+                  -0.4071248173713684,
+                  -1.4540276527404785,
+                  -1.201030969619751,
+                  -0.24140648543834686,
+                  -0.24140648543834686,
+                  -0.24140648543834686,
+                  -0.24140648543834686,
+                  -0.24140648543834686,
+                  -0.25394371151924133,
+                  9.830246925354004,
+                  2.6584949909261537
                 ]
               ],
               "perceptronSettings": {
@@ -365,22 +538,9 @@
           "trainByDomain": false,
           "useStemDict": true
         },
-        "stemDict": {
-          "hai,kaise,madad,mil,mujhe,sakatee,takaneekee": {
-            "intent": "ask.question",
-            "domain": "default"
-          }
-        },
-        "intentDict": {
-          "ask.question": "default"
-        },
-        "sentences": [
-          {
-            "domain": "default",
-            "utterance": "mujhe takaneekee madad kaise mil sakatee hai",
-            "intent": "ask.question"
-          }
-        ],
+        "stemDict": {},
+        "intentDict": {},
+        "sentences": [],
         "domains": {
           "master_domain": {
             "settings": {
@@ -394,54 +554,10 @@
               "filterZeros": true,
               "log": true
             },
-            "features": {
-              "mujhe": 1,
-              "takaneekee": 1,
-              "madad": 1,
-              "kaise": 1,
-              "mil": 1,
-              "sakatee": 1,
-              "hai": 1
-            },
-            "intents": {
-              "ask.question": 1
-            },
-            "intentFeatures": {
-              "ask.question": [
-                "mujhe",
-                "takaneekee",
-                "madad",
-                "kaise",
-                "mil",
-                "sakatee",
-                "hai"
-              ]
-            },
+            "features": {},
+            "intents": {},
+            "intentFeatures": {},
             "neuralNetwork": {
-              "features": [
-                "mujhe",
-                "takaneekee",
-                "madad",
-                "kaise",
-                "mil",
-                "sakatee",
-                "hai"
-              ],
-              "intents": [
-                "ask.question"
-              ],
-              "perceptrons": [
-                [
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  1.6736947298049927,
-                  0.844115083316643
-                ]
-              ],
               "perceptronSettings": {
                 "locale": "hi",
                 "tag": "nlu-hi",
@@ -462,43 +578,67 @@
     "extraSentences": [
       [
         "en",
-        "ask question"
+        "%action% help"
       ],
       [
         "en",
-        "how can I get technical help"
-      ],
-      [
-        "hi",
-        "mujhe takaneekee madad kaise mil sakatee hai"
+        "I need help"
       ],
       [
         "en",
-        "I need technical help"
+        "%action% question"
       ],
       [
         "en",
-        "can anyone help me"
+        "%action% chingu"
       ],
       [
         "en",
-        "where can I get help"
+        "%action% %pp%"
       ],
       [
         "en",
-        "when does the next voyage start"
+        "%action% %proj%"
       ],
       [
         "en",
-        "display the voyage schedule"
+        "%action% %proj% %mgr%"
       ],
       [
         "en",
-        "list the voyage schedule"
+        "%action% %proj% %mgt%"
       ],
       [
         "en",
-        "show the voyage schedule"
+        "%action% %proj% %res%"
+      ],
+      [
+        "en",
+        "%action% %tech%"
+      ],
+      [
+        "en",
+        "%action% %tech% %mgt%"
+      ],
+      [
+        "en",
+        "%action% %tech% %res%"
+      ],
+      [
+        "en",
+        "%action% voyage"
+      ],
+      [
+        "en",
+        "voyage %sched%"
+      ],
+      [
+        "en",
+        "when does the next voyage %begin%"
+      ],
+      [
+        "en",
+        "%display% voyage %sched%"
       ]
     ]
   },
@@ -508,7 +648,280 @@
       "entityPreffix": "%",
       "entitySuffix": "%"
     },
-    "rules": {}
+    "rules": {
+      "en": {
+        "begin": {
+          "name": "begin",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "begin",
+              "texts": [
+                "begin"
+              ]
+            },
+            {
+              "option": "start",
+              "texts": [
+                "start"
+              ]
+            }
+          ]
+        },
+        "action": {
+          "name": "action",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "ask",
+              "texts": [
+                "ask"
+              ]
+            },
+            {
+              "option": "can",
+              "texts": [
+                "can"
+              ]
+            },
+            {
+              "option": "display",
+              "texts": [
+                "display"
+              ]
+            },
+            {
+              "option": "help",
+              "texts": [
+                "help"
+              ]
+            },
+            {
+              "option": "how",
+              "texts": [
+                "how"
+              ]
+            },
+            {
+              "option": "i",
+              "texts": [
+                "i"
+              ]
+            },
+            {
+              "option": "info",
+              "texts": [
+                "info"
+              ]
+            },
+            {
+              "option": "list",
+              "texts": [
+                "list"
+              ]
+            },
+            {
+              "option": "need",
+              "texts": [
+                "need"
+              ]
+            },
+            {
+              "option": "show",
+              "texts": [
+                "show"
+              ]
+            },
+            {
+              "option": "tell",
+              "texts": [
+                "tell"
+              ]
+            },
+            {
+              "option": "what",
+              "texts": [
+                "what"
+              ]
+            },
+            {
+              "option": "when",
+              "texts": [
+                "when"
+              ]
+            },
+            {
+              "option": "where",
+              "texts": [
+                "where"
+              ]
+            }
+          ]
+        },
+        "mgt": {
+          "name": "mgt",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "mgt",
+              "texts": [
+                "mgt"
+              ]
+            },
+            {
+              "option": "management",
+              "texts": [
+                "management"
+              ]
+            }
+          ]
+        },
+        "mgr": {
+          "name": "mgr",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "mgr",
+              "texts": [
+                "manager"
+              ]
+            },
+            {
+              "option": "manager",
+              "texts": [
+                "manager"
+              ]
+            },
+            {
+              "option": "pm",
+              "texts": [
+                "manager"
+              ]
+            }
+          ]
+        },
+        "pp": {
+          "name": "pp",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "pp",
+              "texts": [
+                "pair programming"
+              ]
+            },
+            {
+              "option": "pair prog",
+              "texts": [
+                "pair prog"
+              ]
+            },
+            {
+              "option": "pair programming",
+              "texts": [
+                "pair programming"
+              ]
+            }
+          ]
+        },
+        "proj": {
+          "name": "proj",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "pm",
+              "texts": [
+                "pm"
+              ]
+            },
+            {
+              "option": "proj",
+              "texts": [
+                "proj"
+              ]
+            },
+            {
+              "option": "project",
+              "texts": [
+                "project"
+              ]
+            }
+          ]
+        },
+        "res": {
+          "name": "res",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "res",
+              "texts": [
+                "resource"
+              ]
+            },
+            {
+              "option": "resource",
+              "texts": [
+                "resource"
+              ]
+            }
+          ]
+        },
+        "sched": {
+          "name": "sched",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "cal",
+              "texts": [
+                "calendar"
+              ]
+            },
+            {
+              "option": "calendar",
+              "texts": [
+                "calendar"
+              ]
+            },
+            {
+              "option": "sched",
+              "texts": [
+                "schedule"
+              ]
+            },
+            {
+              "option": "schedule",
+              "texts": [
+                "schedule"
+              ]
+            }
+          ]
+        },
+        "tech": {
+          "name": "tech",
+          "type": "enum",
+          "rules": [
+            {
+              "option": "tech",
+              "texts": [
+                "tech"
+              ]
+            },
+            {
+              "option": "technical",
+              "texts": [
+                "technical"
+              ]
+            },
+            {
+              "option": "technology",
+              "texts": [
+                "technical"
+              ]
+            }
+          ]
+        }
+      }
+    }
   },
   "nlgManager": {
     "settings": {
@@ -516,14 +929,44 @@
     },
     "responses": {
       "en": {
-        "ask.doc": [
+        "ask.all": [
           {
-            "answer": "https://docs.chingu.io"
+            "answer": "Use the #ask-cohort-n-code questions channel to get help from your fellow Chingu's"
           }
         ],
         "ask.question": [
           {
             "answer": "https://chingu.docs.chingu.io/about/askhelp"
+          }
+        ],
+        "doc.chingu": [
+          {
+            "answer": "https://chingu.docs.chingu.io"
+          }
+        ],
+        "doc.pair": [
+          {
+            "answer": "https://pairprog.docs.chingu.io"
+          }
+        ],
+        "doc.proj": [
+          {
+            "answer": "https://projres.docs.chingu.io"
+          }
+        ],
+        "doc.tech": [
+          {
+            "answer": "https://techres.docs.chingu.io"
+          }
+        ],
+        "doc.voyage": [
+          {
+            "answer": "https://voyage.docs.chingu.io"
+          }
+        ],
+        "ask.voyage": [
+          {
+            "answer": "https://voyage.docs.chingu.io"
           }
         ],
         "schedule.voyage": [
@@ -547,5 +990,122 @@
     },
     "actions": {}
   },
-  "slotManager": {}
+  "slotManager": {
+    "ask.all": {
+      "action": {
+        "intent": "ask.all",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "doc.chingu": {
+      "action": {
+        "intent": "doc.chingu",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "doc.pair": {
+      "action": {
+        "intent": "doc.pair",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      },
+      "pp": {
+        "intent": "doc.pair",
+        "entity": "pp",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "doc.proj": {
+      "action": {
+        "intent": "doc.proj",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      },
+      "proj": {
+        "intent": "doc.proj",
+        "entity": "proj",
+        "mandatory": false,
+        "locales": {}
+      },
+      "mgr": {
+        "intent": "doc.proj",
+        "entity": "mgr",
+        "mandatory": false,
+        "locales": {}
+      },
+      "mgt": {
+        "intent": "doc.proj",
+        "entity": "mgt",
+        "mandatory": false,
+        "locales": {}
+      },
+      "res": {
+        "intent": "doc.proj",
+        "entity": "res",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "doc.tech": {
+      "action": {
+        "intent": "doc.tech",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      },
+      "tech": {
+        "intent": "doc.tech",
+        "entity": "tech",
+        "mandatory": false,
+        "locales": {}
+      },
+      "mgt": {
+        "intent": "doc.tech",
+        "entity": "mgt",
+        "mandatory": false,
+        "locales": {}
+      },
+      "res": {
+        "intent": "doc.tech",
+        "entity": "res",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "doc.voyage": {
+      "action": {
+        "intent": "doc.voyage",
+        "entity": "action",
+        "mandatory": false,
+        "locales": {}
+      }
+    },
+    "schedule.voyage": {
+      "sched": {
+        "intent": "schedule.voyage",
+        "entity": "sched",
+        "mandatory": false,
+        "locales": {}
+      },
+      "begin": {
+        "intent": "schedule.voyage",
+        "entity": "begin",
+        "mandatory": false,
+        "locales": {}
+      },
+      "display": {
+        "intent": "schedule.voyage",
+        "entity": "display",
+        "mandatory": false,
+        "locales": {}
+      }
+    }
+  }
 }
